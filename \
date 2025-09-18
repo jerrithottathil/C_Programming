@@ -1,0 +1,38 @@
+/*
+Name : Jerry
+Date :
+Description :
+Input :
+Output :
+*/
+#include <stdio.h>
+
+void reverse_recursive(char str[], int ind, int len);
+
+int main()
+{
+    char str[30];
+    printf("Enter any string : ");
+    scanf("%[^\n]", str);
+    int ind=0,len=0;
+    while(str[len])
+	len++;
+    reverse_recursive(str,ind,len);
+    printf("Reversed string is %s\n", str);
+}
+void reverse_recursive(char str[], int ind, int len)
+{
+    char temp;
+    if(ind==len/2)
+	return;
+    else
+    {
+	temp=str[ind];
+	str[ind]=str[len-ind-1];
+	str[len-ind-1]=temp;
+	reverse_recursive(str,ind+1,len/2);
+    }
+}
+	
+
+
